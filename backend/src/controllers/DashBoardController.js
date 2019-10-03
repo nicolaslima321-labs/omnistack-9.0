@@ -7,11 +7,10 @@ module.exports = {
         const {user_id} = req.headers;
         const spots = await Spot.find({ User: user_id });
 
-    
         if (spots) {
-            return res.json({message: `You spots founded for you`, techs: spots})
+            return res.json({message: "Spots founded for you", techs: spots});
         } else {
-            return res.json({message: "No spots was found"})
+            return res.json({message: "No spots was found"});
         }
     }
 };
