@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import api from './services/api.js';
 import './App.css';
 
 import logo from './assets/logo.svg';
 
 function App() {
+  const [email, setEmail] = useState('');
+
   function handleSubmit(event) {
     event.preventDefault();
     console.log("Hello World");
@@ -21,8 +23,15 @@ function App() {
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">E-MAIL *</label>
-          <input type="email" id="email" placeholder="Seu melhor e-mail"/>
-
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="Seu melhor e-mail"
+            value = {email}
+            onChange={function(event){
+              setEmail(event.target.value)
+            }}
+          />
           <button className="btn" type="submit">Entrar</button>
         </form>
       </div>
