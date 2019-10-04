@@ -2,6 +2,9 @@ const express = require('express');
 
 // Importando dependencia para trabalhar com mongoDB
 const mongoose = require('mongoose');
+
+const cors = require('cors');
+
 // Importando arquivo de rotas JS
 const routes = require('./routes');
 
@@ -15,6 +18,8 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@clusterlearning-83fyg.mongod
 // req.query = Acessar query params (para filtros)
 // req.params = Acessar route params (para edição, delete)
 // req.body = Acessar corpo da requisição
+
+app.use(cors);
 
 app.use(express.json());
 app.use(routes);
